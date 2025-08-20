@@ -1,6 +1,7 @@
 const axios = require("axios");
 
 const Log = async (stack, level, package, message) => {
+    
     try {
          console.log(`Logged locally -> [${stack}] [${level}] [${package}] ${message}`);
     const response = await axios.post('http://localhost:6000/api/log', {
@@ -10,7 +11,7 @@ const Log = async (stack, level, package, message) => {
       message
     });
     
-     console.log("loggied repsone",response.data)
+    
 
         return response.data;
         

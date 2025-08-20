@@ -20,14 +20,15 @@ const logData = async (req, res) => {
     });
     
     console.log(` Logged -> [${stack}] [${level}] [${package}] ${message}`);
-    
+     console.log(`Response Log `,response.data)
+
     res.status(200).json({
       message: "Log sent successfully",
       data: response.data
     });
     
   } catch (error) {
-    console.error("❌ Failed to send log:", error.message);
+    console.error(" Failed to send log:", error.message);
     res.status(500).json({ 
       message: "Failed to send log", 
       error: error.message 
