@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 export default function UrlShortener() {
   const [url, setUrl] = useState("");
   const [validity, setValidity] = useState("");
   const [shortcode, setShortcode] = useState("");
   const [shortUrl, setShortUrl] = useState("");
-
+  const navigate=useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -22,6 +22,7 @@ export default function UrlShortener() {
   return (
     <div style={{ maxWidth: "400px", margin: "50px auto", fontFamily: "Arial, sans-serif" }}>
       <h2 style={{ textAlign: "center" }}>URL Shortener</h2>
+      <button onClick={()=>navigate("/dashboard")}>DashBoard</button>
       <form
         onSubmit={handleSubmit}
         style={{

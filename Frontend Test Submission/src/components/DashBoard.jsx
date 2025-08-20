@@ -3,10 +3,7 @@ import { useEffect, useState } from "react";
 export default function DashBoard() {
   const [urls, setUrls] = useState([]);
 
-  useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("shortenedUrls")) || [];
-    setUrls(stored);
-  }, []);
+
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
