@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+
 const { Log } = require("../utils/logMiddleWare");
 
 const urlStore = new Map();
@@ -37,6 +37,11 @@ const createShortUrl = async (req, res) => {
   });
 };
 
+
+const getAllUrl = async (req, res) => {
+    return res.json({urlStore})
+}
+
 const getOriginalUrl = async (req, res) => {
   const { shortId } = req.params;
   await Log("backend", "info", "handler", `Lookup request for shortId: ${shortId}`);
@@ -65,4 +70,4 @@ const getOriginalUrl = async (req, res) => {
 );
 };
 
-module.exports = { createShortUrl, getOriginalUrl };
+module.exports = { createShortUrl, getOriginalUrl,getAllUrl };
